@@ -1,0 +1,92 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(App());
+}
+
+class App extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Testing Flutter',
+      theme: ThemeData(
+        primarySwatch: Colors.green,
+      ),
+      home: HomePage(),
+    );
+  }
+}
+
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  callBack() {
+    print('Clicked');
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // var time = DateTime.now();
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text('Testing Flutter App'),
+        ),
+        body: Container(
+          width: double.infinity,
+          child: Wrap(
+            direction: Axis.horizontal,
+            alignment: WrapAlignment.center,
+            spacing: 11,
+            runSpacing: 11,
+            children: [
+              Container(
+                width: 100,
+                height: 100,
+                color: Colors.green,
+              ),
+              Container(
+                width: 100,
+                height: 100,
+                color: Colors.yellow,
+              ),
+              Container(
+                width: 100,
+                height: 100,
+                color: Colors.brown,
+              ),
+              Container(
+                width: 100,
+                height: 100,
+                color: Colors.black,
+              ),
+              Container(
+                width: 100,
+                height: 100,
+                color: Colors.grey,
+              ),
+              Container(
+                width: 100,
+                height: 100,
+                color: Colors.cyan,
+              ),
+              Container(
+                width: 100,
+                height: 100,
+                color: Colors.cyanAccent,
+              ),
+              Container(
+                width: 100,
+                height: 100,
+                color: Colors.yellow,
+              ),
+            ],
+          ),
+        ));
+  }
+}
