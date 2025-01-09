@@ -1,0 +1,67 @@
+import 'package:flutter/material.dart';
+import 'package:imgflutter/screens/intro_screen1.dart';
+import 'package:imgflutter/screens/myProfileScreen.dart';
+import 'package:imgflutter/screens/splash_screen1.dart';
+
+void main() {
+  runApp(App());
+}
+
+class App extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Testing Flutter',
+      theme: ThemeData(
+        primarySwatch: Colors.green,
+      ),
+      home: HomePage(),
+    );
+  }
+}
+
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => HomePageState();
+}
+
+class HomePageState extends State<HomePage> {
+  var nameController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text('List Mapping'),
+        ),
+        body: Center(
+          child: Container(
+            width: 300,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('DashBoard Screen'),
+                SizedBox(
+                  height: 10,
+                ),
+                TextField(
+                  controller: nameController,
+                ),
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ProfileScreen(
+                                  nameController.text.toString())));
+                    },
+                    child: const Text('My Profile here'))
+              ],
+            ),
+          ),
+        ));
+  }
+}
