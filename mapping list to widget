@@ -1,0 +1,104 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(App());
+}
+
+class App extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Testing Flutter',
+      theme: ThemeData(
+        primarySwatch: Colors.green,
+      ),
+      home: const HomePage(),
+    );
+  }
+}
+
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => HomePageState();
+}
+
+class HomePageState extends State<HomePage> {
+  @override
+  Widget build(BuildContext context) {
+    var arrData = [
+      {
+        'name': 'Alice',
+        'mobno': '9876543210',
+        'unread': 1,
+      },
+      {
+        'name': 'Bob',
+        'mobno': '8765432109',
+        'unread': 0,
+      },
+      {
+        'name': 'Charlie',
+        'mobno': '7654321098',
+        'unread': 1,
+      },
+      {
+        'name': 'David',
+        'mobno': '6543210987',
+        'unread': 0,
+      },
+      {
+        'name': 'Eve',
+        'mobno': '5432109876',
+        'unread': 1,
+      },
+      {
+        'name': 'Frank',
+        'mobno': '4321098765',
+        'unread': 0,
+      },
+      {
+        'name': 'Grace',
+        'mobno': '3210987654',
+        'unread': 1,
+      },
+      {
+        'name': 'Hank',
+        'mobno': '2109876543',
+        'unread': 0,
+      },
+      {
+        'name': 'Ivy',
+        'mobno': '1098765432',
+        'unread': 1,
+      },
+      {
+        'name': 'Jack',
+        'mobno': '0987654321',
+        'unread': 0,
+      },
+    ];
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text('Basic Calculator'),
+        ),
+        body: Container(
+          child: ListView(
+              children: arrData
+                  .map((value) => ListTile(
+                        leading: Icon(
+                          Icons.account_circle,
+                        ),
+                        title: Text(value['name'].toString()),
+                        subtitle: Text(value['mobno'].toString()),
+                        trailing: CircleAvatar(
+                            radius: 21,
+                            backgroundColor: Colors.green,
+                            child: Text(value['unread'].toString())),
+                      ))
+                  .toList()),
+        ));
+  }
+}
