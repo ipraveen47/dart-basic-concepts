@@ -43,6 +43,19 @@ class HomePageState extends State<HomePage> {
           color: bgColor,
           child: Center(
             child: Container(
+              height: 500,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(11),
+                  border: Border.all(
+                    width: 2,
+                    color: Colors.black,
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: bgColor,
+                      spreadRadius: 5,
+                    )
+                  ]),
               width: 300,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -54,28 +67,37 @@ class HomePageState extends State<HomePage> {
                   SizedBox(
                     height: 20,
                   ),
-                  TextField(
-                    controller: wcontroller,
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                        label: Text('Enter Your Weight in Kg'),
-                        prefix: Icon(Icons.line_weight)),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextField(
+                      controller: wcontroller,
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(
+                          label: Text('Enter Your Weight in Kg'),
+                          prefix: Icon(Icons.line_weight)),
+                    ),
                   ),
                   SizedBox(
                     height: 11,
                   ),
-                  TextField(
-                      controller: hcontroller,
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextField(
+                        controller: hcontroller,
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(
+                            label: Text('Enter Your height'),
+                            prefix: Icon(Icons.height_outlined))),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextField(
+                      controller: icontroller,
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
-                          label: Text('Enter Your height'),
-                          prefix: Icon(Icons.height_outlined))),
-                  TextField(
-                    controller: icontroller,
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                      label: Text('Enter Your Height in Inches'),
-                      prefix: Icon(Icons.height_outlined),
+                        label: Text('Enter Your Height in Inches'),
+                        prefix: Icon(Icons.height_outlined),
+                      ),
                     ),
                   ),
                   SizedBox(
