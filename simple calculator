@@ -1,0 +1,124 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(App());
+}
+
+class App extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Testing Flutter',
+      theme: ThemeData(
+        primarySwatch: Colors.green,
+      ),
+      home: const HomePage(),
+    );
+  }
+}
+
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => HomePageState();
+}
+
+class HomePageState extends State<HomePage> {
+  var controller1 = TextEditingController();
+  var controller2 = TextEditingController();
+  var result = '';
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text('Basic Calculator'),
+        ),
+        body: Center(
+          child: Container(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextField(
+                    keyboardType: TextInputType.number,
+                    controller: controller1,
+                  ),
+                  TextField(
+                    keyboardType: TextInputType.number,
+                    controller: controller2,
+                  ),
+                  Container(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          ElevatedButton(
+                              onPressed: () {
+                                var no1 =
+                                    int.parse(controller1.text.toString());
+                                var no2 =
+                                    int.parse(controller2.text.toString());
+                                var sum = no1 + no2;
+                                result = "the sum of $no1 and $no2 is $sum";
+
+                                setState(() {});
+                              },
+                              child: const Text('Add')),
+                          ElevatedButton(
+                              onPressed: () {
+                                var no1 =
+                                    int.parse(controller1.text.toString());
+                                var no2 =
+                                    int.parse(controller2.text.toString());
+                                var diff = no1 - no2;
+                                result =
+                                    "the difference of $no1 and $no2 is $diff";
+
+                                setState(() {});
+                              },
+                              child: const Text('Sub')),
+                          ElevatedButton(
+                              onPressed: () {
+                                var no1 =
+                                    int.parse(controller1.text.toString());
+                                var no2 =
+                                    int.parse(controller2.text.toString());
+                                var multiple = no1 * no2;
+                                result =
+                                    "the multiple of $no1 and $no2 is $multiple";
+
+                                setState(() {});
+                              },
+                              child: const Text('Multi')),
+                          ElevatedButton(
+                              onPressed: () {
+                                var no1 =
+                                    int.parse(controller1.text.toString());
+                                var no2 =
+                                    int.parse(controller2.text.toString());
+                                var div = no1 / no2;
+                                result = "the div of $no1 by $no2 is $div";
+
+                                setState(() {});
+                              },
+                              child: const Text('Div')),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Text(
+                    result,
+                    style: TextStyle(fontSize: 25),
+                  )
+                ],
+              ),
+            ),
+          ),
+        ));
+  }
+}
